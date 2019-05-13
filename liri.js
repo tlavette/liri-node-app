@@ -1,7 +1,10 @@
-require('dotenv').config();
+// require('dotenv').config();
+var axios = require("axios");
+
 // Code required to import the keys.js file, stored as variable keys.
 var keys = require("./keys.js");
 var fs = require("fs");
+
 
 
 // Take input arguments [2] ("concert-this" || "spotify-this-song" || "movie-this ") + [3]
@@ -40,9 +43,24 @@ function spotifyThisSong(){
 
 function movieThis(){
     if(selectSearch === "movie-this"){
-        console.log("This 0ption will search movie information!");
-    }
-}
+        axios.get("http://www.omdbapi.com/?apikey=trilogy&t=" + value).then(
+             function(response){
+                 console.log("The movie: " + response.data.Title);
+                 console.log("Year: " + response.data.Year);
+                 console.log("IMDB Rating: " + response.data.Ratings);
+                //  console.log("Rotton Tomatoes: " + response.data.Ratings);
+                 console.log("Production Country: " + response.data.Country);
+                 console.log("Lanugage: " + response.data.Language);
+                 console.log("Plot: " + response.data.Plot);
+                 console.log("Actors: " + response.data.Actors);
+             }
+        );
+             
+         }   
+    
+       
+        }
+
 
 
 
