@@ -1,7 +1,7 @@
 // require('dotenv').config();
 var axios = require("axios");
+var spotify = require("node-spotify-api");
 
-const util = require("util");
 
 // Code required to import the keys.js file, stored as variable keys.
 var keys = require("./keys.js");
@@ -32,10 +32,19 @@ switch (selectSearch) {
 // functions defined for each to initially console log option.
 function concertThis() {
     if (selectSearch === "concert-this") {
-        console.log("This option will search bands in town!");
+        axios.get("https://rest.bandsintown.com/artists/events?app_id=codingbootcamp" + value)
+        .then(function(response){
+                  //console.log(response.data);
+        //    if(!response.data){
+                      //console.log("No events found for this artist "+ artist);
+            // }else{
+                console.log(response.data);
+           }
+        );
 
-    }
-}
+        }
+    
+  
 
 function spotifyThisSong() {
     if (selectSearch === "spotify-this-song") {
@@ -43,6 +52,7 @@ function spotifyThisSong() {
     }
 }
 
+// function which uses axios call for omdb API with responses consoled.
 function movieThis() {
     if (selectSearch === "movie-this") {
         axios.get("http://www.omdbapi.com/?apikey=trilogy&t=" + value).then(
@@ -62,7 +72,4 @@ function movieThis() {
 
 
 }
-
-
-
-
+}
