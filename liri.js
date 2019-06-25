@@ -50,7 +50,7 @@ function concertThis() {
         );
 
         }
-    
+}
   
 
 function spotifyThisSong() {
@@ -62,6 +62,7 @@ function spotifyThisSong() {
 // function which uses axios call for omdb API with responses consoled.
 function movieThis() {
     if (selectSearch === "movie-this") {
+        console.log("movie this is selected");
         axios.get("http://www.omdbapi.com/?apikey=trilogy&t=" + value).then(
             function (response) {
                 console.log("The movie: " + response.data.Title);
@@ -74,9 +75,7 @@ function movieThis() {
                 console.log("Actors: " + response.data.Actors);
             }
         );
-
+    
     }
 
-
-}
 }
