@@ -35,14 +35,19 @@ function concertThis() {
         // axios.get("https://rest.bandsintown.com/artists/events?app_id=codingbootcamp" + value)
         axios.get("https://rest.bandsintown.com/artists/" + value + "/events?app_id=codingbootcamp")
         .then(function(response){
+            Object.keys(response).forEach(function(item){
+                // var val = response[key];
+                // console.log(item);
+                console.log(response[item]);
+            })
                   //console.log(response.data);
         //    if(!response.data){
                       //console.log("No events found for this artist "+ artist);
             // }else{
                 // console.log(response.data);
-                console.log("Event Date: " + response.data[1].datetime);
-                console.log("The Venue: " + response.data[1].venue.name);
-                console.log("The Location: " + response.data[1].venue.city);
+                // console.log("Event Date: " + response.data[1].datetime);
+                // console.log("The Venue: " + response.data[1].venue.name);
+                // console.log("The Location: " + response.data[1].venue.city);
                 // console.log("The date: " + resp
                 // console.log("Venue: " + response.data.name);
                 // console.log("Location: " + response.data.city);
