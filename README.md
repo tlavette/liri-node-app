@@ -11,3 +11,13 @@ API
 #Code
 Switch case is used for option selection. From there, each case has it's on API from which
 the data is collected.  
+
+
+
+# Images
+![Concert](/images/concert.png)
+![movie](/images/movie.png)
+![spotify](/images/spotify.png)
+
+
+
